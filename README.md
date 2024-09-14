@@ -1,6 +1,6 @@
-# Cloudflare UO Proxy
+# Gate - Cloudflare UO Proxy
 
-This repository contains a [Cloudflare Worker](https://developers.cloudflare.com/workers/) UO Proxy.
+This repository contains ClassicUO Gate, which is a [Cloudflare Worker](https://developers.cloudflare.com/workers/) UO Proxy.
 It's main purpose is to shield UO servers from DDoS attacks by putting them behind Cloudflare.
 
 It works by utilising the newly added [WebSocket support in ClassicUO](https://github.com/ClassicUO/ClassicUO/pull/1707)
@@ -12,7 +12,7 @@ WebSocket and TCP connection together.
 
 ### New costs and maximum connection durations
 
-As Cloudflare Workers is **billed on CPU time** and each packet costs a tiny bit of CPU to go between WS <-> TCP.
+Cloudflare Workers is **billed on CPU time** and each packet costs a tiny bit of CPU to go between WS <-> TCP.
 Therefore, **CPU time factors greatly limits** total connection time, placing an upper limit on it depending on how
 noisy (packets per second) the connection is.
 It also has an effect on your Cloudflare bill depending on how popular your shard is what your average concurrent
@@ -20,7 +20,7 @@ players is.
 
 [See this spreadsheet for maximum durations and billing scenarios](https://docs.google.com/spreadsheets/d/14xaufq10_TaejvD5l_VBwiWWcTfHt3d_sVz7bugTwgo/edit?gid=0#gid=0)
 
-TL;DR its estimated to cost about $32.40 for 100 concurrent connections per month.
+TL;DR It's estimated to cost about $32.40 for 100 concurrent connections per month.
 
 ### Client IPs will be from Cloudflare
 
@@ -61,7 +61,7 @@ happen for several reasons outside the workers control:
     - `npm install`
     - `npm run deploy`
     - Make note of the address your worker is given
-6. After deploy, change you need to update your ClassicUO `settings.json`:
+6. After deploying, make the following changes to your ClassicUO `settings.json`:
     - Set the `ip` field to the workers address (from above)  using the wss scheme, e.g. `wss://my.worker.dev`
     - Set the `port` field to `443`
 
