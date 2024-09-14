@@ -1,0 +1,22 @@
+{
+  "name": "classicuo-gate",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "wrangler deploy --env production",
+    "deploy:dev": "wrangler deploy --env development",
+    "dev": "wrangler dev",
+    "start": "wrangler dev --port 2083"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240909.0",
+    "@types/node": "^18.15.3",
+    "prettier": "^3.0.3",
+    "typescript": "^5.0.4",
+    "wrangler": "^3.78.2",
+    "dotenv": "^16.3.1"
+  },
+  "dependencies": {
+    "itty-router": "^3.0.12"
+  }
+}

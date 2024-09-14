@@ -1,0 +1,19 @@
+name = "classicuo-gate"
+main = "src/index.ts"
+compatibility_date = "2023-10-16"
+
+# Set a CPU time limit here, note this will affect the total time clients stay connected
+#[limits]
+#cpu_ms = 10
+
+# Change 1.1.1.1:2593 to your shards IP and port
+# In development use `.dev.vars` to override
+vars = { ENVIRONMENT = "development", TARGET_ADDRESS = "1.1.1.1:2593", MASK_RELAY = "true" }
+
+# Production
+[env.production]
+ vars = { ENVIRONMENT = "production", TARGET_ADDRESS = "1.1.1.1:2593", MASK_RELAY = "true" }
+
+# Remote development
+[env.development]
+ vars = { ENVIRONMENT = "development", TARGET_ADDRESS = "1.1.1.1:2593", MASK_RELAY = "true" }
